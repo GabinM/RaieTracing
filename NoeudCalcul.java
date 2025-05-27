@@ -5,7 +5,12 @@ import java.rmi.RemoteException;
 public class NoeudCalcul implements ServiceNoeudCalcul {
 
     public Image computeImage(Scene scene, int x, int y, int w, int l) throws RemoteException {
-        return null;
+        Image partieImage = scene.compute(x, y, w, l);
+        return partieImage;
+    }
+
+    public boolean isStillActive() throws RemoteException {
+        return true;
     }
 
 }
