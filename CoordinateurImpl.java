@@ -66,6 +66,7 @@ public class CoordinateurImpl implements ServiceCoordinateur {
                 completionService.submit(() -> {
                     try {
                         Image img = noeud.computeImage(scene, x0, y0, partieLargeur, partieHauteur);
+                        System.out.println("[Coordinateur] Fragment envoyé (" + x0 + "," + y0 + ")");
                         return new Fragment(x0, y0, img);
                     } catch (RemoteException e) {
                         throw new RuntimeException(e);
@@ -78,6 +79,7 @@ public class CoordinateurImpl implements ServiceCoordinateur {
         try {
             for (int i = 0; i < nbParts * nbParts; i++) {
                 Fragment frag = completionService.take().get();
+                System.out.println("[Coordinateur] Fragment reçu (" + frag.x0 + "," + frag.y0 + ")");
                 
                 // Copier la partie dans l'image finale
                 for (int x = 0; x < partieLargeur; x++) {
