@@ -1,5 +1,4 @@
 import java.rmi.server.UnicastRemoteObject;
-import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 
@@ -34,7 +33,7 @@ public class CoordinateurServer {
                 registry = LocateRegistry.getRegistry(port);
             }
 
-            registry.rebind("serviceCoordinateur", coordinateurExport);
+            registry.rebind("ServiceCoordinateur", coordinateurExport);
 
             System.out.println("[CoordinatorServer] Coordinateur prêt sur port 1099 avec le nom 'ServiceCoordinateur'.");
             System.out.println("En attente d’enregistrement de ComputeNodes et de requêtes clients...");

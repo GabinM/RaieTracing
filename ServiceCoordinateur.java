@@ -26,5 +26,5 @@ public interface ServiceCoordinateur extends Remote {
      * @return
      * @throws RemoteException
      */
-    Image computeDistributed(Scene scene) throws RemoteException;
+    Image computeDistributed(Scene scene, int largeur, int hauteur) throws RemoteException;
 }
