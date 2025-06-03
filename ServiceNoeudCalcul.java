@@ -1,10 +1,11 @@
+import java.rmi.Remote;
 import java.rmi.RemoteException;
 import raytracer.Scene;
 import raytracer.Image;
 
-public interface ServiceNoeudCalcul {
+public interface ServiceNoeudCalcul extends Remote {
 
-    boolean isStillActive() throws RemoteException;
+    boolean isAlreadyUsed() throws RemoteException;
 
     Image computeImage(Scene scene, int x, int y, int w, int l) throws RemoteException;
 }
